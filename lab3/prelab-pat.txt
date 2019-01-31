@@ -1,0 +1,162 @@
+GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-100.el7_4.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+(gdb) file person
+Reading symbols from /Users/Student/ptaylor/embedded-design/unit2/person...done.
+(gdb) next
+The program is not being run.
+(gdb) start
+Temporary breakpoint 1 at 0x400ad6: file person.cc, line 10.
+Starting program: /Users/Student/ptaylor/embedded-design/unit2/person
+
+Temporary breakpoint 1, main () at person.cc:10
+10              Person p;
+(gdb) next
+11              p.name = "John";
+(gdb) next
+12              p.age = 10;
+(gdb) next
+13              PrintPerson(&p);
+(gdb) step
+PrintPerson (p=0x7fffffffe3f0) at person.cc:7
+7               std::cout << p->name << " is " << p->age << " years old.\n";
+(gdb) print
+The history is empty.
+(gdb) print p.name
+$1 = "John"
+(gdb) print p.age
+$2 = 10
+(gdb) next
+John is 10 years old.
+8       }
+(gdb)
+main () at person.cc:14
+14              return 0;
+(gdb)
+15      }
+(gdb)
+__libc_start_main (main=0x400acd <main()>, argc=1, ubp_av=0x7fffffffe4f8,
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>,
+    stack_end=0x7fffffffe4e8) at ../csu/libc-start.c:308
+308       exit (result);
+(gdb)
+[Inferior 1 (process 20506) exited normally]
+(gdb)
+The program is not being run.
+(gdb) -bash-4.2$ gdb
+(gdb) print p.age
+$2 = 10
+(gdb) next
+John is 10 years old.
+Undefined command: "-bash-4".  Try "help".
+(gdb) GNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-100.el7_4.1
+Undefined command: "GNU".  Try "help".
+(gdb) Copyright (C) 2013 Free Software Foundation, Inc.
+Undefined command: "Copyright".  Try "help".
+(gdb) License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+Undefined command: "License".  Try "help".
+(gdb) This is free software: you are free to change and redistribute it.
+Undefined command: "This".  Try "help".
+(gdb) There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+Undefined command: "There".  Try "help".
+(gdb) and "show warranty" for details.
+Undefined command: "and".  Try "help".
+(gdb) This GDB was configured as "x86_64-redhat-linux-gnu".
+Undefined command: "This".  Try "help".
+(gdb) For bug reporting instructions, please see:
+Expression not found
+(gdb) <http://www.gnu.org/software/gdb/bugs/>.
+Undefined command: "<http".  Try "help".
+(gdb) (gdb) file person
+Undefined command: "".  Try "help".
+(gdb) Reading symbols from /Users/Student/ptaylor/embedded-design/unit2/person...done.
+Undefined command: "Reading".  Try "help".
+(gdb) (gdb) next
+Undefined command: "".  Try "help".
+(gdb) The program is not being run.
+Undefined command: "The".  Try "help".
+(gdb) (gdb) start
+Undefined command: "".  Try "help".
+(gdb) Temporary breakpoint 1 at 0x400ad6: file person.cc, line 10.
+Undefined command: "Temporary".  Try "help".
+(gdb) Starting program: /Users/Student/ptaylor/embedded-design/unit2/person
+Undefined command: "Starting".  Try "help".
+(gdb)
+Undefined command: "Starting".  Try "help".
+(gdb) Temporary breakpoint 1, main () at person.cc:10
+Undefined command: "Temporary".  Try "help".
+(gdb) 10              Person p;
+Undefined command: "10".  Try "help".
+(gdb) (gdb) next
+Undefined command: "".  Try "help".
+(gdb) 11              p.name = "John";
+Undefined command: "11".  Try "help".
+(gdb) (gdb) next
+Undefined command: "".  Try "help".
+(gdb) 12              p.age = 10;
+Undefined command: "12".  Try "help".
+(gdb) (gdb) next
+Undefined command: "".  Try "help".
+(gdb) 13              PrintPerson(&p);
+Undefined command: "13".  Try "help".
+(gdb) (gdb) step
+Undefined command: "".  Try "help".
+(gdb) PrintPerson (p=0x7fffffffe3f0) at person.cc:7
+Undefined command: "PrintPerson".  Try "help".
+(gdb) 7               std::cout << p->name << " is " << p->age << " years old.\n";
+Undefined command: "7".  Try "help".
+(gdb) (gdb) print
+Undefined command: "".  Try "help".
+(gdb) The history is empty.
+Undefined command: "The".  Try "help".
+(gdb) (gdb) print p.name
+Undefined command: "".  Try "help".
+(gdb) $1 = "John"
+Undefined command: "$1".  Try "help".
+(gdb) (gdb) print p.age
+Undefined command: "".  Try "help".
+(gdb) $2 = 10
+Undefined command: "$2".  Try "help".
+(gdb) (gdb) next
+Undefined command: "".  Try "help".
+(gdb) John is 10 years old.
+Undefined command: "John".  Try "help".
+(gdb) 8       }
+Undefined command: "8".  Try "help".
+(gdb) (gdb)
+Undefined command: "".  Try "help".
+(gdb) main () at person.cc:14
+Undefined maintenance command: "() at person.cc:14".  Try "help maintenance".
+(gdb) 14              return 0;
+Undefined command: "14".  Try "help".
+(gdb) (gdb)
+Undefined command: "".  Try "help".
+(gdb) 15      }
+Undefined command: "15".  Try "help".
+(gdb) (gdb)
+Undefined command: "".  Try "help".
+(gdb) __libc_start_main (main=0x400acd <main()>, argc=1, ubp_av=0x7fffffffe4f8,
+Undefined command: "__libc_start_main".  Try "help".
+(gdb)     init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>,
+A syntax error in expression, near `=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>,'.
+(gdb)     stack_end=0x7fffffffe4e8) at ../csu/libc-start.c:308
+Undefined command: "stack_end".  Try "help".
+(gdb) 308       exit (result);
+Undefined command: "308".  Try "help".
+(gdb) (gdb)
+Undefined command: "".  Try "help".
+(gdb) [Inferior 1 (process 20506) exited normally]
+Undefined command: "".  Try "help".
+(gdb) (gdb)
+Undefined command: "".  Try "help".
+(gdb) The program is not being run.
+Undefined command: "The".  Try "help".
+(gdb) (gdb)
+Undefined command: "".  Try "help".
+(gdb)
