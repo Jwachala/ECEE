@@ -268,17 +268,28 @@ Main Menu:
 
 Select an option: 5
 You selected "Exit"
-``
+```
+
 ## E
 
+```terminal
+Main Menu:
+1. Add a person
+2. Find a person
+3. Remove a person
+4. Print the list
+5. Exit
 
+Select an option: 5
+You selected "Exit"
+```
 
-## 4:
+## 4
 
 GDB!!!
 
-## 5:
+## 5
 
 GDB Crash
 
-## Extra Credit:
+## Extra Credit
