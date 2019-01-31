@@ -13,15 +13,15 @@ void Initialize() { // COMPLETE
 void Finalize() { // COMPLETE
     delete[] v;
 }
-void Grow() { // COMPLETE
+void Grow() {
     // creates new pointer to point to the larger array
     size *= 2;
     double *nv = new double[size];
-    std::cout << "created nv \n";
+    // std::cout << "created nv \n";
     // copies old values into new array
     for (int i = 0; i < size / 2; i++) {
         nv[i] = v[i];
-        std::cout << "cp\n";
+        // std::cout << "cp\n";
     }
     // makes v point to new array
     delete[] v;
@@ -48,6 +48,26 @@ void PrintVector() { // COMPLETE
     }
     std::cout << "\n";
 }
+
+void Shrink() { // COMPLETE
+    // creates new pointer to point to the smaller array
+    std::cout << "Vector Utilization below " << ((count / 1.0) / size) * 100
+              << "\%. Deleting half of the vector (only empty space).";
+    size /= 2;
+    double *nv = new double[size];
+    // std::cout << "created nv \n";
+    // copies old values into new array
+    for (int i = 0; i < size / 2; i++) {
+        nv[i] = v[i];
+        // std::cout << "cp\n";
+    }
+    // makes v point to new array
+    delete[] v;
+    v = nv;
+    std::cout << "Vector shrunk\nPrevious capacity: " << size * 2
+              << " elements\nNew capacity: " << size << " elements\n";
+}
+
 void RemoveElement() { // COMPLETE
     if (debug == 1) {
         std::cout << "Count: " << count;
@@ -68,8 +88,9 @@ void RemoveElement() { // COMPLETE
         std::cout << "\nSize: " << size << '\n';
         // std::cout << "Size:" << size;
     }
-    if((count/1.0)/size)
-        Shrink();
+    if ((count / 1.0) / size <= 0.3) // Shrink command
+        if (count != 0)
+            Shrink();
 }
 
 void InsertElement() { // NOT COMPLETE
@@ -85,9 +106,10 @@ void InsertElement() { // NOT COMPLETE
     if (index > count) {
         std::cout << "Na fam, u wrong \n";
         InsertElement();
-    }
-    std::cout << "Enter the new element: ";
-    std::cin >> usrNum;
+    } else {
+        std::cout << "Enter the new element: ";
+        std::cin >> usrNum;
+    
     if (count == size) {
         Grow();
     }
@@ -96,24 +118,7 @@ void InsertElement() { // NOT COMPLETE
     }
     v[index] = usrNum;
     count++;
-}
-
-void Shrink() { // COMPLETE
-    // creates new pointer to point to the larger array
-    std::cout<<"Vector Utilization below " << ((count/1.0)/size)*100 << "\%. Deleting half of the vector (only enpty space)."
-    size /= 2;
-    double *nv = new double[size];
-    std::cout << "created nv \n";
-    // copies old values into new array
-    for (int i = 0; i < size / 2; i++) {
-        nv[i] = v[i];
-        std::cout << "cp\n";
     }
-    // makes v point to new array
-    delete[] v;
-    v = nv;
-    std::cout << "Vector grown\nPrevious capacity: " << size / 2
-              << " elements\nNew capacity: " << size << " elements\n";
 }
 
 int main() {

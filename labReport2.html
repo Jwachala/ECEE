@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>2160 Lab 2</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body>
+        <h1 id="2160-lab-2">2160 Lab 2</h1>
+<p>Patrick Taylor and James Wachala</p>
+<p>Section Number: 1</p>
+<p>January 1st, 2019</p>
+<h2 id="pre-lab-b">Pre-Lab b)</h2>
+<pre><code class="language-terminal"><div>Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option: 2
+You selected &quot;Append element at the end&quot;
+Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option: 1
+You selected &quot;Print the array&quot;
+Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option: 3
+You selected &quot;Remove last element&quot;
+Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option: 4
+You selected &quot;Insert one element&quot;
+Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option: 5
+You selected &quot;Exit&quot;
+</div></code></pre>
+<h2 id="1-the-grow-function-code">1: The Grow() function code</h2>
+<pre><code class="language-c++"><div><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Grow</span><span class="hljs-params">()</span> </span>{ 
+    <span class="hljs-comment">// creates new pointer to point to the larger array</span>
+    size *= <span class="hljs-number">2</span>;
+    <span class="hljs-keyword">double</span> *nv = <span class="hljs-keyword">new</span> <span class="hljs-keyword">double</span>[size];
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"created nv \n"</span>;
+    <span class="hljs-comment">// copies old values into new array</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; size / <span class="hljs-number">2</span>; i++) {
+        nv[i] = v[i];
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"cp\n"</span>;
+    }
+    <span class="hljs-comment">// makes v point to new array</span>
+    <span class="hljs-keyword">delete</span>[] v;
+    v = nv;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Vector grown\nPrevious capacity: "</span> &lt;&lt; size / <span class="hljs-number">2</span>
+              &lt;&lt; <span class="hljs-string">" elements\nNew capacity: "</span> &lt;&lt; size &lt;&lt; <span class="hljs-string">" elements\n"</span>;
+}
+</div></code></pre>
+<h2 id="2a-the-addelement-and-printvector-function-code">2A: The AddElement() and PrintVector() function code</h2>
+<pre><code class="language-c++"><div><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">AddElement</span><span class="hljs-params">()</span> </span>{ <span class="hljs-comment">// COMPLETE</span>
+    <span class="hljs-keyword">if</span> (count &lt; size) {
+        <span class="hljs-keyword">double</span> usrNum;
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Enter the new element: "</span>;
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span> &gt;&gt; usrNum;
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">'\n'</span>;
+        v[count] = usrNum;
+        count++;
+    } <span class="hljs-keyword">else</span> {
+        Grow();
+        AddElement();
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">PrintVector</span><span class="hljs-params">()</span> </span>{ <span class="hljs-comment">// COMPLETE</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; count; i++) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; v[i] &lt;&lt; <span class="hljs-string">" "</span>;
+    }
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"\n"</span>;
+}
+</div></code></pre>
+<h2 id="2b-output-when-doing-addvector-to-the-point-the-vector-grows">2B: Output (when doing AddVector() to the point the vector grows)</h2>
+<pre><code class="language-terminal"><div>Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option: 2
+You selected &quot;Append element at the end&quot;
+Enter the new element: 1
+
+Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option: 2
+You selected &quot;Append element at the end&quot;
+Enter the new element: 2
+
+Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option: 2
+You selected &quot;Append element at the end&quot;
+Vector grown
+Previous capacity: 2 elements
+New capacity: 4 elements
+Enter the new element: 3
+
+Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option: 2
+You selected &quot;Append element at the end&quot;
+Enter the new element: 5
+
+Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option: 1
+You selected &quot;Print the array&quot;
+1 2 3 5
+Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option:
+</div></code></pre>
+<h2 id="3a-removeelement-function-code">3A: RemoveElement() function code</h2>
+<pre><code class="language-c++"><div><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">RemoveElement</span><span class="hljs-params">()</span> </span>{ <span class="hljs-comment">// COMPLETE</span>
+    <span class="hljs-keyword">if</span> (debug == <span class="hljs-number">1</span>) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Count: "</span> &lt;&lt; count;
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"\nSize: "</span> &lt;&lt; size &lt;&lt; <span class="hljs-string">'\n'</span>;
+        <span class="hljs-comment">// std::cout &lt;&lt; "Size:" &lt;&lt; size;</span>
+    }
+    <span class="hljs-keyword">if</span> (count == <span class="hljs-number">0</span>) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Error: No values in the Array."</span> &lt;&lt; <span class="hljs-string">'\n'</span>;
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Returning to Main Menu..."</span>
+                  &lt;&lt; <span class="hljs-string">"\n\n"</span>;
+    }
+
+    <span class="hljs-keyword">else</span> {
+        count--;
+    }
+    <span class="hljs-keyword">if</span> (debug == <span class="hljs-number">1</span>) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Count: "</span> &lt;&lt; count;
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"\nSize: "</span> &lt;&lt; size &lt;&lt; <span class="hljs-string">'\n'</span>;
+        <span class="hljs-comment">// std::cout &lt;&lt; "Size:" &lt;&lt; size;</span>
+    }
+    <span class="hljs-keyword">if</span>((count/<span class="hljs-number">1.0</span>)/size)
+        Shrink();
+}
+</div></code></pre>
+<h2 id="3b-output-a-removing-last-element-succesfully-b-removing-on-an-empty-vector">3B: Output (A, removing last element succesfully. B, removing on an empty vector)</h2>
+<pre><code class="language-terminal"><div>Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option: 2
+You selected &quot;Append element at the end&quot;
+Enter the new element: 54
+
+Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option: 3
+You selected &quot;Remove last element&quot;
+Count: 1
+Size: 2
+Count: 0
+Size: 2
+Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option: 3
+You selected &quot;Remove last element&quot;
+Count: 0
+Size: 2
+Error: No values in the Array.
+Returning to Main Menu...
+
+Count: 0
+Size: 2
+Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option:
+</div></code></pre>
+<h2 id="4a-insertelement-function-code">4A: InsertElement() function code</h2>
+<pre><code class="language-c++"><div><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">InsertElement</span><span class="hljs-params">()</span> </span>{ <span class="hljs-comment">// NOT COMPLETE</span>
+    <span class="hljs-keyword">int</span> index;
+    <span class="hljs-keyword">double</span> usrNum;
+    <span class="hljs-keyword">if</span> (debug == <span class="hljs-number">1</span>) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Count: "</span> &lt;&lt; count;
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"\nSize: "</span> &lt;&lt; size &lt;&lt; <span class="hljs-string">'\n'</span>;
+        <span class="hljs-comment">// std::cout &lt;&lt; "Size:" &lt;&lt; size;</span>
+    }
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Enter the index of the new element: "</span>;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span> &gt;&gt; index;
+    <span class="hljs-keyword">if</span> (index &gt; count) {
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Na fam, u wrong \n"</span>;
+        InsertElement();
+    }
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Enter the new element: "</span>;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span> &gt;&gt; usrNum;
+    <span class="hljs-keyword">if</span> (count == size) {
+        Grow();
+    }
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = count - <span class="hljs-number">1</span>; i &gt;= index; i--) {
+        v[i + <span class="hljs-number">1</span>] = v[i];
+    }
+    v[index] = usrNum;
+    count++;
+}
+</div></code></pre>
+<h2 id="4b-output-a-adding-several-elements-b-entering-an-invalid-value-for-the-index">4B: Output (A, Adding several elements. B, entering an invalid value for the index)</h2>
+<pre><code class="language-terminal"><div>Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option: 2
+You selected &quot;Append element at the end&quot;
+Enter the new element: 34
+
+Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option: 4
+You selected &quot;Insert one element&quot;
+Count: 1
+Size: 2
+Enter the index of the new element: 54
+Na fam, u wrong
+Count: 1
+Size: 2
+Enter the index of the new element: 0
+Enter the new element: 12
+Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option: 2
+You selected &quot;Append element at the end&quot;
+Vector grown
+Previous capacity: 2 elements
+New capacity: 4 elements
+Enter the new element: 56
+
+Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option: 4
+You selected &quot;Insert one element&quot;
+Count: 3
+Size: 4
+Enter the index of the new element: 2
+Enter the new element: 13
+Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option: 1
+You selected &quot;Print the array&quot;
+12 34 13 56
+Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option:
+</div></code></pre>
+<h2 id="extra-credit-shrink-function-code">Extra Credit: Shrink() function code</h2>
+<pre><code class="language-c++"><div><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Shrink</span><span class="hljs-params">()</span> </span>{ <span class="hljs-comment">// COMPLETE</span>
+    <span class="hljs-comment">// creates new pointer to point to the smaller array</span>
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">"Vector Utilization below "</span> &lt;&lt; ((count/<span class="hljs-number">1.0</span>)/size)*<span class="hljs-number">100</span> &lt;&lt; 
+    <span class="hljs-string">"\%. Deleting half of the vector (only empty space)."</span>;
+    size /= <span class="hljs-number">2</span>;
+    <span class="hljs-keyword">double</span> *nv = <span class="hljs-keyword">new</span> <span class="hljs-keyword">double</span>[size];
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"created nv \n"</span>;
+    <span class="hljs-comment">// copies old values into new array</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; size / <span class="hljs-number">2</span>; i++) {
+        nv[i] = v[i];
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"cp\n"</span>;
+    }
+    <span class="hljs-comment">// makes v point to new array</span>
+    <span class="hljs-keyword">delete</span>[] v;
+    v = nv;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Vector shrunk\nPrevious capacity: "</span> &lt;&lt; size * <span class="hljs-number">2</span>
+              &lt;&lt; <span class="hljs-string">" elements\nNew capacity: "</span> &lt;&lt; size &lt;&lt; <span class="hljs-string">" elements\n"</span>;
+}
+</div></code></pre>
+<h2 id="extra-credit-output-when-vector-is-shrunk">Extra Credit: Output when vector is shrunk</h2>
+<p>The function outputs at what percentage the vector was utilized, but will only run Shrink() if the utilization is below 30%.</p>
+<pre><code class="language-terminal"><div>Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option: 2
+You selected &quot;Append element at the end&quot;
+Enter the new element: 45
+
+Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option: 2
+You selected &quot;Append element at the end&quot;
+Enter the new element: 46
+
+Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option: 2
+You selected &quot;Append element at the end&quot;
+Vector grown
+Previous capacity: 2 elements
+New capacity: 4 elements
+Enter the new element: 47
+
+Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option: 1
+You selected &quot;Print the array&quot;
+45 46 47
+Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option: 3
+You selected &quot;Remove last element&quot;
+Count: 3
+Size: 4
+Count: 2
+Size: 4
+Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option: 3
+You selected &quot;Remove last element&quot;
+Count: 2
+Size: 4
+Count: 1
+Size: 4
+Vector Utilization below 25%. Deleting half of the vector (only empty space).Vector shrunk
+Previous capacity: 4 elements
+New capacity: 2 elements
+Main Menu:
+1. Print the array
+2. Append element at the end
+3. Remove last element
+4. Insert one element
+5. Exit
+
+Select an option:
+</div></code></pre>
+
+    </body>
+    </html>
