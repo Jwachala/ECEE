@@ -95,12 +95,37 @@ void PrintPerson(Person *person) {
     std::cout << "Age: " << person->age << '\n';
 }
 
+void Sort(List *list, int sortSelection) {
+    ListHead(list);
+    int currentLowest;
+    int counter;
+    Person *currentLowestPerson = new Person;
+    while (list->current->next) {
+        while (list->current->next) {
+            std::cout<<("I made it to line 105!");
+            if (list->current->age < currentLowest) {
+                currentLowest = list->current->age;
+                currentLowestPerson = list->current;
+            }
+        }
+        std::cout <<"I found a lowest person!";
+        ListHead(list);
+        ListInsert(list, currentLowestPerson);
+        counter++;
+        ListHead(list);
+        for (int i = 0; i < counter; i++) {
+            ListNext(list);
+        }
+    }
+    delete currentLowestPerson;
+}
+
 int main() {
     List list;
     ListInitialize(&list);
     std::string menu = "\nMain Menu: \n1. Add a person \n2. Find a person "
                        " \n3. Remove a person \n4. Print the list "
-                       "\n5. Exit\n\nSelect an option: ";
+                       "\n5. Exit\n6. Sort\n\nSelect an option: ";
     bool running = true;
     int idNum = 1;
     while (running) {
@@ -146,7 +171,7 @@ int main() {
                 std::cout << "Person not found! \n";
             } else {
                 ListRemove(&list);
-            } 
+            }
             ListHead(&list);
             break;
         }
@@ -165,12 +190,20 @@ int main() {
             return 0;
             break;
         }
-        
+        case 6: {
+            int sortSelection = 0;
+            while (sortSelection != 1 || sortSelection != 2) {
+                std::cout << "You selected \"Sort\", do you want to do by "
+                             "age(1) or by name (2): ";
+                std::cin >> sortSelection;
+                Sort(&list, sortSelection);
+            }
+        }
         default: {
             std::cout << "Invalid! Try again\n";
             break;
         }
         }
-    int test = 0;
+        int test = 0;
     }
 }
