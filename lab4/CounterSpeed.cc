@@ -1,67 +1,5 @@
 #include "ZedBoard.h"
 
-// Physical base address of GPIO
-
-//const unsigned gpio_address = 0x400d0000;
-
-// Length of memory-mapped IO window
-
-/*const unsigned gpio_size = 0xff;
-
-const int gpio_led1_offset = 0x12C;  // Offset for LED1
-
-const int gpio_led2_offset = 0x130;  // Offset for LED2
-
-const int gpio_led3_offset = 0x134;  // Offset for LED3
-
-const int gpio_led4_offset = 0x138;  // Offset for LED4
-
-const int gpio_led5_offset = 0x13C;  // Offset for LED5
-
-const int gpio_led6_offset = 0x140;  // Offset for LED6
-
-const int gpio_led7_offset = 0x144;  // Offset for LED7
-
-const int gpio_led8_offset = 0x148;  // Offset for LED8
-
-const int gpio_sw1_offset = 0x14C;   // Offset for Switch 1
-
-const int gpio_sw2_offset = 0x150;   // Offset for Switch 2
-
-const int gpio_sw3_offset = 0x154;   // Offset for Switch 3
-
-const int gpio_sw4_offset = 0x158;   // Offset for Switch 4
-
-const int gpio_sw5_offset = 0x15C;   // Offset for Switch 5
-
-const int gpio_sw6_offset = 0x160;   // Offset for Switch 6
-
-const int gpio_sw7_offset = 0x164;   // Offset for Switch 7
-
-const int gpio_sw8_offset = 0x168;   // Offset for Switch 8
-
-const int gpio_pbtnl_offset = 0x16C; // Offset for left push button
-
-const int gpio_pbtnr_offset = 0x170; // Offset for right push button
-
-const int gpio_pbtnu_offset = 0x174; // Offset for up push button
-
-const int gpio_pbtnd_offset = 0x178; // Offset for down push button
-
-const int gpio_pbtnc_offset = 0x17C; // Offset for center push button*/
-
-
-/**
-
- * Show lower 8 bits of integer value on LEDs
-
- *
-
- * @param ptr Base address of I/O
-
- * @param value Value to show on LEDs
-
- */
 
 void SetLedNumber(int value,ZedBoard &board) {
 
@@ -103,7 +41,7 @@ int PushButtonGet(ZedBoard &board){
 }
 
 int main() {
-
+    
     // Initialize
 
     //int fd;
@@ -120,9 +58,24 @@ int main() {
 
     }*/
     int count = 0;
+    int timeCount = 0;
     int lastState = 7;
+    int mult = 0;
     while(true){
         usleep(1000);
+        if(mult > 0 || mult < 0){
+          timeCount++;  
+          if(timeCount%(1000/abs(mult)) == 0){
+          if(mult >0){
+            count++;
+          }else{
+              count--;
+          }
+            SetLedNumber(count, board);
+          }
+        }
+        
+        
         if(count > 255){
                  count = 255;
         }
@@ -138,22 +91,24 @@ int main() {
         
         switch(state){
             case 1:{
-                if(count>127){
-                count-=128;
+                
+                if(mult > 0){
+                    mult*=-1;
                 }
-                count*=2;
                 break; 
             }
             case 2:{
-                count/=2;
+                if(mult < 0){
+                    mult*=-1;
+                }
                 break; 
             }
             case 3:{
-                 count++;
-                 break; 
+                 mult++;
+                 break;
             }
             case 4:{
-                count--;
+                mult--;
                 break; 
             }
             case 5:{
