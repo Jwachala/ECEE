@@ -4,7 +4,7 @@ Patrick Taylor and James Wachala
 
 Section Number: 1
 
-February 13th, 2019
+February 20th, 2019
 
 ## Pre-lab
 
@@ -29,19 +29,19 @@ date
 
 | Button | Code |
 | --- | --- |
-| A | |
-| B | |
-| 1 | |
-| 2 | |
-| dUp | |
-| dDown | |
-| dLeft | |
-| dRight | |
-| plus | |
-| minus | |
-| home | |
+| A | 48 |
+| B | 49 |
+| 1 | 1 |
+| 2 | 2 |
+| dUp | 103 |
+| dDown | 108 |
+| dLeft | 105 |
+| dRight | 106 |
+| plus | 151 |
+| minus | 156 |
+| home | 60 |
 
-TODO: value represents ____
+value represents pressed or not pressed, 1 = pressed, 0 = not pressed.
 
 ## Assignment 2
 
