@@ -32,7 +32,7 @@ Functions like RegisterRead, but instead of returning a value it sets taht value
 
 ## 1 LedOnOff
 
-We tested several possible place values, on and off.
+We tested several positions on and off.
 
 ```C++
 // LedOnOff.cc
