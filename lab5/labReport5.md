@@ -54,7 +54,3 @@ Files are attached in `q3.zip`.
 ## Assignment 4
 
 Files are attached in `q4.zip` and `q4.mov`.
-
-## Extra Credit
-
-Files are attached in `extra.zip` and `extra.mov`.
