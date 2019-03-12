@@ -87,3 +87,113 @@ class Name : public ParentName{
     }
 };
 ```
+
+## Dynamic vs. static instantiation
+
+### arrays
+
+```c++
+//dynamic
+//init
+int *v = new int[n];
+//delete
+delete[] v;
+```
+
+### class instances
+
+```c++
+//static
+Rectangle r("Static Rectangle");
+//dynamic
+Rectangle *pr = new Rectangle("Dynamic Rectangle");
+delete pr;
+```
+
+## challenge
+
+Do the following, in both a single file, and as a multifile project:
+
+- Create a class that contains a virtual function.
+- Create a child of that class that overrides that function
+- instantiate that class statically and dynamically
+- polymorphise the child class back into the parent
+
+### Single File
+
+```c++
+#include <iostream>
+class Animal{
+    int age;
+    std::string name;
+public:
+    Animal(int age, std::string name){
+        this->age = age;
+        this->name = name;
+    }
+    virtual void makeNoise(){
+        std::cout << "noise!" << '\n';
+    }
+};
+class Dog : public Animal{
+    std::string breed;
+public:
+    Dog(int age, std::string name,std::string breed): Animal(age, name){
+        this->breed = breed;
+    }
+    void makeNoise(){
+        std::cout << "boof!" << '\n';
+    }
+};
+int main(){
+    Animal Frank(18, "Frank");
+    Animal *David = new Animal(23,"David");
+    Dog *Fido = new Dog(14,"Fido","greek");
+    Animal *AFido;
+    AFido = Fido;
+    David->makeNoise();
+    AFido->makeNoise();
+    Fido->makeNoise();
+    delete David;
+    delete AFido;
+}
+```
+
+### Multi File
+
+Animal.h
+
+```c++
+#include <iostream>
+
+```
+
+Animal.cc
+
+```c++
+
+```
+
+Dog.h
+
+```c++
+
+```
+
+Dog.cc
+
+```c++
+
+```
+
+main.cc
+
+```c++
+
+```
+
+makefile
+
+```make
+
+```
