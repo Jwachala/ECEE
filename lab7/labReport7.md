@@ -34,7 +34,7 @@ x | y | s | c
 
 ![Assignment 4][img4]
 
-Similar to the half adder, s represents the least significant digit and the most significant digit it c. The full adder utilizes two half adders too add two 1-bit integers together then returning the carryout and adding the least significant bit to the final integer.
+Similar to the half adder, s represents the least significant digit and the most significant digit it c. The full adder utilizes two half adders to add two 1-bit integers together then returning the carryout and adding the least significant bit to the final integer.
 The OR gate determines if there is a carry digit. If the first half adder returns a carry OR the second returns a carry then the full adder returns a carryout (in the case where the inputs would add to a 2 - `10` or 3 - `11`)
 
 ## Assignment 5
@@ -43,7 +43,7 @@ The OR gate determines if there is a carry digit. If the first half adder return
 
 23 + 5 = 28 with no carryout.
 
-An 8 bit slicer cuts the 8 bit number into 8 1-bit numbers and assigns the greatest diget to the last adder and the smallest digeit to the first adder for each of the input numbers at the y and z inputs. the carryout from each full adder is dumped into the x input of the next full adder, which is the 3rd "input variable." The final Cout returns either a 1 or 0. A 1 is returned if the result is higher than 8-bits (greater than 127). A zero is returned in all other cases.
+An 8 bit slicer cuts the 8 bit number into 8 1-bit numbers and assigns the greatest digit to the last adder and the smallest digit to the first adder for each of the input numbers at the y and z inputs. the carryout from each full adder is dumped into the x input of the next full adder, which is the 3rd "input variable." The final Cout returns either a 1 or 0. A 1 is returned if the result is higher than 8-bits (greater than 255). A zero is returned in all other cases.
 
 ## Extra Credit
 
