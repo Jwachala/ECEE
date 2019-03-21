@@ -24,13 +24,13 @@ One could make an even slower counter by adding another compare to constant and 
 
 ![Assignment 3][img3]
 
+![eg1][img3.1]
+
+![eg2][img3.2]
+
 ## Assignment 4
 
 ![Assignment 4][img4]
-
-## Assignment 5
-
-![Assignment 5][img5]
 
 ## Extra Credit
 
@@ -39,5 +39,7 @@ One could make an even slower counter by adding another compare to constant and 
 [img1]: assignment1.PNG
 [img2]: assignment2.PNG
 [img3]: assignment3.PNG
+[img3.1]: IMG_1234.JPG
+[img3.2]: IMG_1235.JPG
 [img4]: assignment4.PNG
 [imgEC]: EC.PNG
