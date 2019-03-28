@@ -24,13 +24,21 @@ The values here were chosen because they are 1000 time greater than the ones in 
 
 ![2 design][img2]
 
+The Output cycles every 2 seconds. Each cycle it waits for a second after the toggle triggers and increments twice in the following second following that delay. Our design is correct as the Toggle triggers every other second (starting the cycle). The Pulse2Hz is triggered after Toggle triggers which increments the output twice.
+
 ## Assignment 3
 
 ![3 design][img3]
 
+Step 1 activates after 25,000 iterations (half a second), which causes the Pulse2Hz to acticate and feed into the counter to start counting, adding 1 every half second. The Constant determines wether the toggle is one or of. If it is off the counter decrements, if it is 1, the counter increments and decrements as the toggle block siwtches on and off. If the constant were a button and the toggle gets toggled on by briefly pressing the button the counter would increment only. The slicer then cuts the 8 bit number (ranging from 0-255) and feeds the 1-bit number to the LEDs (once the program is passed to the Zedboard)
+
 ![3 first graph][img3_1]
 
+The direction is being toggled betweeen 1 and zero. When the direction is being fed a 1, it increments one then decrements as if gets toggled to 0.
+
 ![3 second graph][img3_2]
+
+The output of the counter being told to decrement as Toggle1 is feeding a constant value of 0 to the direction. And underflowing as the initial value is 0, it loops around to 255 then decrements.  
 
 [imgpre1]: prelab_design.PNG
 [imgpre2]: prelab_graphs.PNG
