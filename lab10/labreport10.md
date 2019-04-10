@@ -12,7 +12,7 @@ April 3rd, 2019
 
 ![Prelab Scope][imgpre2]
 
-Here we see the singal on for only part of the cycle, that part being the 1.5ms it's on.
+Here we see the signal on for only part of the cycle, that part being the 1.5ms it's on.
 
 ## Assignment 1
 
@@ -50,6 +50,8 @@ This result is as expected, as the counter starts at a 30 time unit width, and g
 
 ## Extra Credit
 
+![extra credit][imgec]
+
 [imgpre1]: prelab_design.PNG
 [imgpre2]: prelab_scope.PNG
 [img1]: assignment1.PNG
@@ -62,3 +64,4 @@ This result is as expected, as the counter starts at a 30 time unit width, and g
 [img2.4]: assignment2_4.PNG
 [img2.5]: assignment2_5.PNG
 [img3]: assignment3.PNG
+[imgec]: extra.PNG
