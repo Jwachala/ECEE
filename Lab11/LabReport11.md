@@ -58,7 +58,7 @@ Pulses 5 times per second
 
 ## 4)
 
-See Video Attached.
+See Video Attached. Object was thrown 18 inches.
 
 [impre0]: preDes.PNG
 [imgpre1]: pre0Zoom.PNG
