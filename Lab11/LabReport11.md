@@ -12,7 +12,7 @@ April 10th, 2019
 
 ![Prelab Design][imgpre0]
 
-The ConfigurablePWM takes an angle in degree and converts it to PWM, it does this by converting degrees to PWM in milliseconds but in the clock of the program at 50000 iterations per second. Meaning 20 milliseconds is 1000 cycles.
+The ConfigurablePWM takes an angle in degree and converts it to PWM, it does this by converting degrees to PWM in milliseconds but in the clock of the program at 50000 iterations per second. Meaning 20 milliseconds is 1000 cycles. The counter (Full Pulse) counts from 0-1000 (20 ms) and when the Angle (converted to the appropriate ms equivelent for the PWM) is less than the Full Pulse value the PWM outputs 1 which is the peak of the PWM signal, the rest of the pulse is 0 (off)
 
 ### b)
 
@@ -20,10 +20,10 @@ The ConfigurablePWM takes an angle in degree and converts it to PWM, it does thi
 Works as intended, 30 cycles is equivalent to .6 milliseconds. In the design, inputing 0 as the angle will output the pwm signal with a peak for 30 cycles (.6 milliseconds) and a low for the remaining 970 cycles (the remaining of the 20 milliseconds).
 
 ![90 Zoom][imgpre2]
-Works as intended, 75 cycles is equivalent to .6 milliseconds. In the design, inputing 90 as the angle will output the pwm signal with a peak for 75 cycles (90/2 + 30) and a low for the remaining 925 cyles (the remaining of the 20 milliseconds).
+Works as intended, 75 cycles is equivalent to 1.5 milliseconds. In the design, inputing 90 as the angle will output the pwm signal with a peak for 75 cycles (90/2 + 30) and a low for the remaining 925 cyles (the remaining of the 20 milliseconds).
 
 ![180 Zoom][imgpre3]
-Works as intended, 120 cycles is equivalent to .6 milliseconds. In the design, inputing 180 as the angle will output the pwm signal with a peak for 120 cycles (180/2 + 30) and a low for the remaining 880 cyles (the remaining of the 20 milliseconds).
+Works as intended, 120 cycles is equivalent to 2.4 milliseconds. In the design, inputing 180 as the angle will output the pwm signal with a peak for 120 cycles (180/2 + 30) and a low for the remaining 880 cyles (the remaining of the 20 milliseconds).
 
 ## 1)
 ### a)
@@ -60,7 +60,7 @@ Pulses 5 times per second
 
 See Video Attached. Object was thrown 18 inches.
 
-[impre0]: preDes.PNG
+[imgpre0]: preDes.PNG
 [imgpre1]: pre0Zoom.PNG
 [imgpre2]: pre90Zoom.PNG
 [imgpre3]: pre180Zoom.PNG
