@@ -29,14 +29,16 @@ Works as intended, 120 cycles is equivalent to .6 milliseconds. In the design, i
 ### a)
 
 ![Design][img1]
+ulse is set to one whenever the Counter reaches the value of 50000/Speed (in the instances of below Speed gets set to 4 and 7) As the counter gets reset whenever it hits that value which sends a 1 to Pulse when the Counter resets.
 
 ### b)
 
 ![4 as Speed][img1.1]
 Pulses 4 times per second (1 second is 50000 cycles)
 
-![7 as Speed][img1.2]
 
+![7 as Speed][img1.2]
+Pulses 5 times per second
 
 ## 2)
 ### a)
